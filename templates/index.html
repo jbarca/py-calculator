@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Python Calculator</title>
+
+    <input type="text" readonly="readonly" value="0" name="display"><br>
+
+    <form action="{{ url_for('handle_number') }}" method="post">
+        <input type="submit" value="C" name="clear">
+        <input type="submit" value="%" name="mod">
+        <input type="submit" value="÷" name="divide" formaction="{{ url_for('divide') }}" formmethod="post"><br>
+        <input type="submit" value="7" name="seven">
+        <input type="submit" value="8" name="eight">
+        <input type="submit" value="9" name="nine">
+        <input type="submit" value="×" name="multiply" formaction="{{ url_for('multiply') }}" formmethod="post"><br>
+        <input type="submit" value="4" name="four">
+        <input type="submit" value="5" name="five">
+        <input type="submit" value="6" name="six">
+        <input type="submit" value="-" name="subtract" formaction="{{ url_for('subtract') }}" formmethod="post"><br>
+        <input type="submit" value="1" name="one">
+        <input type="submit" value="2" name="two">
+        <input type="submit" value="3" name="three">
+        <input type="submit" value="+" name="add" formaction="{{ url_for('add') }}" formmethod="post"><br>
+        <input type="submit" value="0" name="0">
+        <input type="submit" value="." name="decimal">
+        <input type="submit" value="=" name="equals">
+    </form>
+</head>
+<body>
+
+</body>
+</html>
