@@ -2,13 +2,9 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-first_num = None
-second_num = None
 
-
-# TODO: Add 'operand' variable that denotes which operand will be used in the
-# calculation. When first_num and second_num are both not None and '=' is clicked
-# perform the calculation
+# TODO: Create and AJAX post request in the HTML file and use that to send
+# a post message to the calculate function with the value of the display
 
 @app.route("/")
 def index():
@@ -25,26 +21,27 @@ def handle_number():
 
 @app.route("/add", methods=['POST'])
 def add():
-    print("adding numbers")
     return (''), 204
 
 
 @app.route("/subtract", methods=['POST'])
 def subtract():
-    print("subtracting numbers")
     return (''), 204
 
 
 @app.route("/mutliply", methods=['POST'])
 def multiply():
-    print("multiplying numbers")
     return (''), 204
 
 
 @app.route("/divide", methods=['POST'])
 def divide():
-    print("dividing numbers")
     return (''), 204
+
+
+@app.route("/calculate", methods=['POST'])
+def calculate():
+    print("calculating")
 
 
 if __name__ == "__main__":

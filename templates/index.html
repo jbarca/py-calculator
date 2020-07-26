@@ -4,27 +4,34 @@
     <meta charset="UTF-8">
     <title>Python Calculator</title>
 
-    <input type="text" readonly="readonly" value="0" name="display"><br>
+    <script>
+        function updateDisplay(number) {
+            if (number !== undefined) {
+                document.getElementById('display').value += number;
+            }
+        }
+    </script>
 
-    <form action="{{ url_for('handle_number') }}" method="post">
-        <input type="submit" value="C" name="clear">
-        <input type="submit" value="%" name="mod">
-        <input type="submit" value="÷" name="divide" formaction="{{ url_for('divide') }}" formmethod="post"><br>
-        <input type="submit" value="7" name="seven">
-        <input type="submit" value="8" name="eight">
-        <input type="submit" value="9" name="nine">
-        <input type="submit" value="×" name="multiply" formaction="{{ url_for('multiply') }}" formmethod="post"><br>
-        <input type="submit" value="4" name="four">
-        <input type="submit" value="5" name="five">
-        <input type="submit" value="6" name="six">
-        <input type="submit" value="-" name="subtract" formaction="{{ url_for('subtract') }}" formmethod="post"><br>
-        <input type="submit" value="1" name="one">
-        <input type="submit" value="2" name="two">
-        <input type="submit" value="3" name="three">
-        <input type="submit" value="+" name="add" formaction="{{ url_for('add') }}" formmethod="post"><br>
-        <input type="submit" value="0" name="0">
-        <input type="submit" value="." name="decimal">
-        <input type="submit" value="=" name="equals">
+    <form>
+        <input type="text" readonly="readonly" id="display"><br>
+        <input type="button" value="C" name="clear" onclick="document.getElementById('display').value=''">
+        <input type="button" value="%" name="mod" onclick="updateDisplay('%')">
+        <input type="button" value="÷" name="divide" onclick="updateDisplay('÷')"><br>
+        <input type="button" value="7" name="seven" onclick="updateDisplay('7')">
+        <input type="button" value="8" name="eight" onclick="updateDisplay('8')">
+        <input type="button" value="9" name="nine" onclick="updateDisplay('9')">
+        <input type="button" value="×" name="multiply" onclick="updateDisplay('×')"><br>
+        <input type="button" value="4" name="four" onclick="updateDisplay('4')">
+        <input type="button" value="5" name="five" onclick="updateDisplay('5')">
+        <input type="button" value="6" name="six" onclick="updateDisplay('6')">
+        <input type="button" value="-" name="subtract" onclick="updateDisplay('-')"><br>
+        <input type="button" value="1" name="one" onclick="updateDisplay('1')">
+        <input type="button" value="2" name="two" onclick="updateDisplay('2')">
+        <input type="button" value="3" name="three" onclick="updateDisplay('3')">
+        <input type="button" value="+" name="add" onclick="updateDisplay('+')"><br>
+        <input type="button" value="0" name="0" onclick="updateDisplay('0')">
+        <input type="button" value="." name="decimal" onclick="updateDisplay('.')">
+        <input type="button" value="=" name="equals" onclick="{{ url_for('calculate') }}">
     </form>
 </head>
 <body>
