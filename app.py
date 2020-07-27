@@ -3,8 +3,7 @@ from flask import Flask, render_template, request, jsonify
 app = Flask(__name__)
 
 
-# TODO: Create and AJAX post request in the HTML file and use that to send
-# a post message to the calculate function with the value of the display
+# TODO: Determine calculation for POST data
 
 @app.route("/")
 def index():
