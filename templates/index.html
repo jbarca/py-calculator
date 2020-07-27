@@ -4,12 +4,23 @@
     <meta charset="UTF-8">
     <title>Python Calculator</title>
 
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script>
         function updateDisplay(number) {
             if (number !== undefined) {
                 document.getElementById('display').value += number;
             }
         }
+
+        function sendData() {
+            $.ajax({
+                type : "POST",
+	            url : '/calculate',
+	            dataType: "json",
+	            data: JSON.stringify(document.getElementById('display').value),
+	            contentType: 'application/json;charset=UTF-8',
+	        });
+	    }
     </script>
 
     <form>
@@ -31,7 +42,7 @@
         <input type="button" value="+" name="add" onclick="updateDisplay('+')"><br>
         <input type="button" value="0" name="0" onclick="updateDisplay('0')">
         <input type="button" value="." name="decimal" onclick="updateDisplay('.')">
-        <input type="button" value="=" name="equals" onclick="{{ url_for('calculate') }}">
+        <input type="button" value="=" name="equals" onclick="sendData()">
     </form>
 </head>
 <body>

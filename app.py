@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 
 app = Flask(__name__)
 
@@ -11,37 +11,27 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/handle_number", methods=['POST'])
-def handle_number():
-    request_dict = request.form.to_dict()
-    for key, value in request_dict.items():
-        print(value)
-    return (''), 204
-
-
-@app.route("/add", methods=['POST'])
 def add():
-    return (''), 204
+    return None
 
 
-@app.route("/subtract", methods=['POST'])
 def subtract():
-    return (''), 204
+    return None
 
 
-@app.route("/mutliply", methods=['POST'])
 def multiply():
-    return (''), 204
+    return None
 
 
-@app.route("/divide", methods=['POST'])
 def divide():
-    return (''), 204
+    return None
 
 
 @app.route("/calculate", methods=['POST'])
 def calculate():
-    print("calculating")
+    if request.method == 'POST':
+        print(request.get_json())
+    return (''), 204
 
 
 if __name__ == "__main__":
