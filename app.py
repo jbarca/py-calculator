@@ -1,36 +1,22 @@
 from flask import Flask, render_template, request, jsonify
+import parsing
 
 app = Flask(__name__)
 
 
 # TODO: Determine calculation for POST data
 
+# https://www.reddit.com/r/flask/comments/afgks4/how_to_get_a_javascript_function_to_call_a_flask/
+
 @app.route("/")
 def index():
     return render_template("index.html")
 
 
-def add():
-    return None
-
-
-def subtract():
-    return None
-
-
-def multiply():
-    return None
-
-
-def divide():
-    return None
-
-
 @app.route("/calculate", methods=['POST'])
 def calculate():
     if request.method == 'POST':
-        print(request.get_json())
-    return (''), 204
+        return jsonify(str(parsing.evaluation(request.get_json())))
 
 
 if __name__ == "__main__":

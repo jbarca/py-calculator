@@ -19,6 +19,9 @@
 	            dataType: "json",
 	            data: JSON.stringify(document.getElementById('display').value),
 	            contentType: 'application/json;charset=UTF-8',
+	            success: function(response) {
+	                        document.getElementById('display').value = response;
+	                    }
 	        });
 	    }
     </script>
@@ -27,11 +30,11 @@
         <input type="text" readonly="readonly" id="display"><br>
         <input type="button" value="C" name="clear" onclick="document.getElementById('display').value=''">
         <input type="button" value="%" name="mod" onclick="updateDisplay('%')">
-        <input type="button" value="÷" name="divide" onclick="updateDisplay('÷')"><br>
+        <input type="button" value="/" name="divide" onclick="updateDisplay('/')"><br>
         <input type="button" value="7" name="seven" onclick="updateDisplay('7')">
         <input type="button" value="8" name="eight" onclick="updateDisplay('8')">
         <input type="button" value="9" name="nine" onclick="updateDisplay('9')">
-        <input type="button" value="×" name="multiply" onclick="updateDisplay('×')"><br>
+        <input type="button" value="*" name="multiply" onclick="updateDisplay('*')"><br>
         <input type="button" value="4" name="four" onclick="updateDisplay('4')">
         <input type="button" value="5" name="five" onclick="updateDisplay('5')">
         <input type="button" value="6" name="six" onclick="updateDisplay('6')">
