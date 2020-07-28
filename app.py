@@ -15,8 +15,13 @@ def index():
 
 @app.route("/calculate", methods=['POST'])
 def calculate():
+    expr = ""
     if request.method == 'POST':
-        return jsonify(str(parsing.evaluation(request.get_json())))
+        try:
+            expr = str(parsing.evaluation(request.get_json()))
+        except Exception:
+            expr = "Invalid expression"
+    return jsonify(expr)
 
 
 if __name__ == "__main__":
