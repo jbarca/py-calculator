@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, jsonify
-import parsing
 
 app = Flask(__name__)
 
@@ -18,7 +17,8 @@ def calculate():
     expr = ""
     if request.method == 'POST':
         try:
-            expr = str(parsing.evaluation(request.get_json()))
+            #expr = str(parsing.evaluation(request.get_json()))
+            expr = eval(request.get_json())
         except Exception:
             expr = "Invalid expression"
     return jsonify(expr)

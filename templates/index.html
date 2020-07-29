@@ -28,6 +28,8 @@
 
     <form>
         <input type="text" readonly="readonly" id="display"><br>
+        <input type="button" value="(" name="left_bracket" onclick="updateDisplay('(')">
+        <input type="button" value=")" name="right_bracket" onclick="updateDisplay(')')">
         <input type="button" value="C" name="clear" onclick="document.getElementById('display').value=''">
         <input type="button" value="%" name="mod" onclick="updateDisplay('%')">
         <input type="button" value="/" name="divide" onclick="updateDisplay('/')"><br>
