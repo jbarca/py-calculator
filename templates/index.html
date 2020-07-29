@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/mainpage.css') }}">
     <meta charset="UTF-8">
     <title>Python Calculator</title>
 
@@ -26,29 +27,32 @@
 	    }
     </script>
 
-    <form>
-        <input type="text" readonly="readonly" id="display"><br>
-        <input type="button" value="(" name="left_bracket" onclick="updateDisplay('(')">
-        <input type="button" value=")" name="right_bracket" onclick="updateDisplay(')')">
-        <input type="button" value="C" name="clear" onclick="document.getElementById('display').value=''">
-        <input type="button" value="%" name="mod" onclick="updateDisplay('%')">
-        <input type="button" value="/" name="divide" onclick="updateDisplay('/')"><br>
-        <input type="button" value="7" name="seven" onclick="updateDisplay('7')">
-        <input type="button" value="8" name="eight" onclick="updateDisplay('8')">
-        <input type="button" value="9" name="nine" onclick="updateDisplay('9')">
-        <input type="button" value="*" name="multiply" onclick="updateDisplay('*')"><br>
-        <input type="button" value="4" name="four" onclick="updateDisplay('4')">
-        <input type="button" value="5" name="five" onclick="updateDisplay('5')">
-        <input type="button" value="6" name="six" onclick="updateDisplay('6')">
-        <input type="button" value="-" name="subtract" onclick="updateDisplay('-')"><br>
-        <input type="button" value="1" name="one" onclick="updateDisplay('1')">
-        <input type="button" value="2" name="two" onclick="updateDisplay('2')">
-        <input type="button" value="3" name="three" onclick="updateDisplay('3')">
-        <input type="button" value="+" name="add" onclick="updateDisplay('+')"><br>
-        <input type="button" value="0" name="0" onclick="updateDisplay('0')">
-        <input type="button" value="." name="decimal" onclick="updateDisplay('.')">
-        <input type="button" value="=" name="equals" onclick="sendData()">
-    </form>
+    <div class="calculator">
+        <input type="text" class="calculator-screen" value="0" id="display" disabled>
+
+        <div class="calculator-keys">
+            <button type="button" value="(" name="left_bracket" onclick="updateDisplay('(')">(</button>
+            <button type="button" value=")" name="right_bracket" onclick="updateDisplay(')')">)</button>
+            <button type="button" class="all-clear" value="all-clear" name="clear" onclick="document.getElementById('display').value=''">AC</button>
+            <button type="button" class="operator" value="%" name="mod" onclick="updateDisplay('%')">%</button>
+            <button type="button" class="operator" value="/" name="divide" onclick="updateDisplay('/')">&divide;</button>
+            <button type="button" value="7" name="seven" onclick="updateDisplay('7')">7</button>
+            <button type="button" value="8" name="eight" onclick="updateDisplay('8')">8</button>
+            <button type="button" value="9" name="nine" onclick="updateDisplay('9')">9</button>
+            <button type="button" class="operator" value="*" name="multiply" onclick="updateDisplay('*')">&times;</button>
+            <button type="button" value="4" name="four" onclick="updateDisplay('4')">4</button>
+            <button type="button" value="5" name="five" onclick="updateDisplay('5')">5</button>
+            <button type="button" value="6" name="six" onclick="updateDisplay('6')">6</button>
+            <button type="button" value="-" name="subtract" onclick="updateDisplay('-')">-</button>
+            <button type="button" value="1" name="one" onclick="updateDisplay('1')">1</button>
+            <button type="button" value="2" name="two" onclick="updateDisplay('2')">2</button>
+            <button type="button" value="3" name="three" onclick="updateDisplay('3')">3</button>
+            <button type="button" value="+" name="add" onclick="updateDisplay('+')">+</button>
+            <button type="button" value="0" name="0" onclick="updateDisplay('0')">0</button>
+            <button type="button" class="decimal" value="." name="decimal" onclick="updateDisplay('.')">.</button>
+            <button type="button" class="equal-sign" value="=" name="equals" onclick="sendData()">=</button>
+        </div>
+    </div>
 </head>
 <body>
 
