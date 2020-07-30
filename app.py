@@ -2,10 +2,8 @@ from flask import Flask, render_template, request, jsonify
 
 app = Flask(__name__)
 
-
-# TODO: Determine calculation for POST data
-
 # https://www.reddit.com/r/flask/comments/afgks4/how_to_get_a_javascript_function_to_call_a_flask/
+# https://freshman.tech/css-grid-calculator/
 
 @app.route("/")
 def index():
@@ -17,7 +15,6 @@ def calculate():
     expr = ""
     if request.method == 'POST':
         try:
-            #expr = str(parsing.evaluation(request.get_json()))
             expr = eval(request.get_json())
         except Exception:
             expr = "Invalid expression"

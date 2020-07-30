@@ -19,6 +19,13 @@ html {
     width: 400px;
 }
 
+.calculator-keys {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+    padding: 20px;
+}
+
 .calculator-screen {
     width: 100%;
     font-size: 5rem;
